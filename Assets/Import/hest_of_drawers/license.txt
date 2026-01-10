@@ -1,0 +1,8 @@
+Model Information:
+* title:	Сhest of drawers
+* source:	https://sketchfab.com/3d-models/hest-of-drawers-93dd510467194a3bb99dc5d5727600e7
+* author:	Modest3D (https://sketchfab.com/Modest3D)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
