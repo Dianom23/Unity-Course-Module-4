@@ -3,6 +3,11 @@ using UnityEngine;
 [SelectionBase]
 public class Door : MonoBehaviour
 {
+    public bool IsNeedKey;
+    public int IdKey;
+
+    private Inventory _inventory;
+
     // Компонент аниматора двери
     private Animator _animator;
     // Флаг состояния двери
@@ -15,6 +20,7 @@ public class Door : MonoBehaviour
     {
         // Получаем компонент Animator на этом объекте
         _animator = GetComponent<Animator>();
+        _inventory = FindFirstObjectByType<Inventory>();
     }
 
     // Update is called once per frame
@@ -45,9 +51,17 @@ public class Door : MonoBehaviour
 
     private void OnInteract()
     {
+
         // Проверяем, что дверь закрыта и игрок рядом
         if (_isOpen == false && _isPlayerNear == true)
         {
+            bool canOpen = !IsNeedKey || _inventory.UseKey(IdKey);
+
+            if (canOpen == false)
+            {
+                return;
+            }   
+
             // Запускаем анимацию открытия двери через Trigger "Open"
             _animator.SetTrigger("Open");
             // Устанавливаем флаг, что дверь теперь открыта
